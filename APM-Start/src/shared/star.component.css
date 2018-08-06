@@ -1,0 +1,12 @@
+.main-content-wrapper .single-product-area .single_product_desc .product-meta-data .ratings-review .ratings i {
+    font-size: 10px;
+    color: #fbb710; }
+  .main-content-wrapper .single-product-area .single_product_desc .product-meta-data .ratings-review .review a {
+    display: inline-block;
+    color: #6b6b6b;
+    font-size: 14px; }
+
+.ratings-star {
+    white-space: nowrap;
+    overflow: hidden;
+}

@@ -12,7 +12,7 @@ export class ProductListComponent implements OnInit {
 
     constructor() {
         this.filteredProducts=this.products;
-        this.listFilter='chair';
+        this.listFilter='';
     }
     ngOnInit(): void {
         console.log('On init');
@@ -95,5 +95,9 @@ export class ProductListComponent implements OnInit {
         filterBy = filterBy.toLowerCase();
         return this.products.filter((product: IProduct) => 
                                 product.productName.toLowerCase().indexOf(filterBy) !== -1);
+    }
+
+    onRatingClicked(message: string): void {
+        console.log("message is " + message);
     }
 }
