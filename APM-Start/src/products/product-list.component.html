@@ -1,0 +1,43 @@
+<!-- Product Catagories Area Start -->
+<div class="product-topbar d-xl-flex align-items-end justify-content-between">
+    <!-- Total Products -->
+    <div class="total-products">
+        <h2>{{pageTitle}}</h2>
+        <button class='btn-primary' (click)='toggleImage()'>
+            {{showImage?'Hide':'Show'}} Images</button>
+        <h2>Filter By</h2>    
+        <input [(ngModel)]='listFilter'>    
+    </div>
+</div>
+<div class="products-catagories-area clearfix" *ngIf='products && products.length'>
+    <div class="amado-pro-catagory clearfix">
+        <!-- Single Catagory -->
+        <h4>Filtered By  {{listFilter}}</h4> 
+        <div class="single-products-catagory clearfix" *ngFor='let product of filteredProducts'>
+            <a href="shop.html">
+                <img *ngIf='showImage' [src]='product.imageUrl' [alt]='product.productName' [title]='product.productName'>
+                <img *ngIf='!showImage' src='assets/images/bg-img/empty.png' [alt]='product.productName' [title]='product.productName'>
+                <!-- Hover Content -->
+                <div class="hover-content">
+                    <div class="line"></div>
+                    <p>{{product.price | currency: 'INR':'symbol':'1.2-2' }}</p>
+                    <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
+                        <div class="ratings">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <h4>{{product.productName  | uppercase}}</h4>
+                </div>
+            </a>
+            <div class="description">
+                <h6>{{product.description}}</h6>
+                <h6>{{product.productCode | lowercase | converToSpaces: '-'}}. Released on  {{product.releaseDate}}</h6>
+            </div>
+        </div>
+ </div>
+</div>
+<!-- Product Catagories Area End -->
