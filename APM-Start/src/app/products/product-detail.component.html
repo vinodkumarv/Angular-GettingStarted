@@ -1,0 +1,57 @@
+<!-- Product Details Area Start -->
+<div class="single-product-area section-padding-100 clearfix">
+    <div class="container-fluid" *ngIf='product'>
+
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mt-50">
+                        {{product.productName}}
+                        <ul><button class='btn btn-outline-secondary' (click)='onBack()'>Back</button></ul>
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-7">
+                <div class="single_product_thumb">
+                    <div id="product_details_slider" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li class="active" data-target="#product_details_slider" data-slide-to="0" style="background-image: url({{product.imageUrl}});">
+                            </li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <a class="gallery_img" href="{{product.imageUrl}}">
+                                    <img class="d-block w-100" src="{{product.imageUrl}}" alt="First slide">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5">
+                <div class="single_product_desc">
+                    <!-- Product Meta Data -->
+                    <div class="product-meta-data">
+                        <div class="line"></div>
+                        <p class="product-price">{{product.price | currency: 'INR':'symbol': '1.2-2' }}</p>
+                        <a href="product-details.html">
+                            <h6>{{product.productName}}</h6>
+                        </a>
+                        <!-- Ratings & Review -->
+                        <pm-star [rating]='product.starRating' ></pm-star>
+                    </div>
+                    <div class="short_overview my-5">
+                        <p>{{product.description}}</p>
+                    </div>
+
+              
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Details Area End -->
